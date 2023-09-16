@@ -9,6 +9,10 @@ enable_testing()
 
 set(MY_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
+if(POLICY CMP0079)
+  cmake_policy(SET CMP0079 NEW)
+endif()
+
 add_subdirectory(src)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
@@ -16,6 +20,6 @@ set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
 find_package(OpenCV REQUIRED)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV})
-target_include_directories(${PROJECT_NAME} PUBLIC ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
+target_include_directories(${PROJECT_NAME} PRIVATE ${OpenCV_INCLUDE_DIRS})
 
