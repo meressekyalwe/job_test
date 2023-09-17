@@ -115,7 +115,7 @@ int main()
 
     for (size_t i = 0; i < mip_pages.size(); ++i) 
     {
-        std::string output_path = OUTPUT_DIR "mip_#" + std::to_string(i) + ".mip";
+        std::string output_path = OUTPUT_DIR "mip_#" + std::to_string(i) + ".bin";
         std::ofstream output_file(output_path, std::ios::binary);
 
         for (size_t j = 0; j < mip_pages[i].size(); ++j) 
